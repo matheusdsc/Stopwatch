@@ -33,6 +33,14 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
         static void PreStart(int time)
         {
+            Console.WriteLine("C = Ordem crescente");
+            Console.WriteLine("D = Ordem Decrescente");
+            string data = Console.ReadLine().ToLower();
+            if (data != "c" || data != "d")
+            {
+                Console.WriteLine("Digite um número válido!");
+                PreStart(time);
+            }
             Console.Clear();
             Console.WriteLine("Ready...");
             Thread.Sleep(1000);
@@ -40,10 +48,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Thread.Sleep(1000);
             Console.WriteLine("Go!!!");
             Thread.Sleep(2000);
-            Start(time);
+            if (data == "c") Crescente(time);
+            else if (data == "d") Decrescente(time);
+
+
         }
 
-        static void Start(int time)
+        static void Crescente(int time)
         {
             int currentTime = 0;
 
@@ -60,5 +71,24 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Thread.Sleep(2000);
             Menu();
         }
+
+        static void Decrescente(int time)
+        {
+            int currentTime = time;
+
+            while (currentTime != 0)
+            {
+                Console.Clear();
+                Console.WriteLine(currentTime);
+                currentTime--;
+                Thread.Sleep(1000);
+            }
+
+            Console.Clear();
+            Console.WriteLine("Stopwatch finalizado...");
+            Thread.Sleep(2000);
+            Menu();
+        }
+
     }
 }

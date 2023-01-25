@@ -36,7 +36,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.WriteLine("C = Ordem crescente");
             Console.WriteLine("D = Ordem Decrescente");
             string data = Console.ReadLine().ToLower();
-            if (data != "c" || data != "d")
+            if (data != "c" && data != "d")
             {
                 Console.WriteLine("Digite um número válido!");
                 PreStart(time);
